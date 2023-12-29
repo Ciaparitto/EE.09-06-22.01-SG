@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styl6.css">
+</head>
+<body>
+    <div id="lewy">
+        <h1>Konfigurator stylu</h1>
+        <p>podaj kolor tla</p>
+        <button  onclick="tlo('indigo')" id="indygo">indigo</button>
+        <button onclick="tlo('steelblue')" id="steelblue">steelblue</button>
+        <button onclick="tlo('olive')" id="olive">olive</button>
+        <p>podaj kolor czcionki</p>
+        <select name="kolor" id="kolor" onchange="zmienczczionke()">wybierz kolor czczionki
+            <option value="white">white</option>
+            <option value="tan">tan</option>
+            <option value="bisque">bisque</option>
+            <option value="plum">plum</option>
+        </select>
+        <p>podaj rozmair czcionki w procentach np 200%</p>
+        <input type="text" name="size" id="size" value="100%" onblur="zmienrozmiar(this.value)">
+        <p>czy ma rysowac ramke</p>
+        <input type="checkbox" name="ramka" id="ramka" onchange="zmienRamke(this.checked)">
+        <p>jaki jest typ punktora listy</p>
+        dysk <input type="radio" name="punktor" id="punktor" checked onchange="zmienpunktor('disc')">
+        <p></p>
+        kwadrat <input type="radio" name="punktor" id="punktor" onchange="zmienpunktor('square')">
+        <p></p>
+        okrag <input type="radio" name="punktor" id="punktor" onchange="zmienpunktor('circle')">
+       
+       
+       
+       
+    </div>
+    <div id="prawy">
+        <img src="gibraltar.jpg" alt="polwysep gibraltar" id="obraz">
+        <ul id="lista">
+            <li>element1</li>
+            <li>element2</li>
+            <li>element3</li>
+        </ul>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio magnam est saepe voluptatem laborum maxime cupiditate dignissimos assumenda obcaecati inventore!</p>
+    </div>
+    <footer> autor:0000000000</footer>
+</body>
+<script>
+    function tlo(kolor)
+    {
+        document.getElementById("prawy").style.backgroundColor = kolor;
+    }
+  function zmienczczionke()
+  {
+    var kolor = document.getElementById("kolor").value;
+
+    document.getElementById("prawy").style.color = kolor;
+  }
+  function zmienrozmiar(rozmiar)
+  {
+    document.getElementById('prawy').style.fontSize = rozmiar;
+  }
+  function zmienRamke(stan)
+  {
+    if(stan)
+    {
+        document.getElementById('obraz').style.border = "1px solid #ccc";
+    }else{
+        document.getElementById("obraz").style.border = "none";
+    }
+
+  }
+  function zmienpunktor(x)
+  {
+    
+    document.getElementById('lista').style.listStyleType = x;
+  }
+</script>
+</html>
